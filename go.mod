@@ -1,10 +1,11 @@
 module singbox-gui
 
-go 1.23.4
+go 1.20
 
-require fyne.io/fyne/v2 v2.6.1
+require golang.org/x/sys v0.10.0
 
 require (
+	fyne.io/fyne/v2 v2.6.1
 	fyne.io/systray v1.11.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -34,7 +35,6 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	golang.org/x/image v0.24.0 // indirect
 	golang.org/x/net v0.35.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:  # 手动触发工作流
   release:
     types: [ created ]
 
@@ -13,12 +14,14 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4  # 更新到最新版本
     
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5  # 更新到最新版本
       with:
-        go-version: '1.20'
+        go-version: '1.21'  # 使用最新稳定版本
+        cache: false
     
     - name: Install Dependencies
       run: |
@@ -33,10 +36,11 @@ jobs:
         go build -ldflags "-H windowsgui" -o singbox-gui.exe
     
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 更新到最新版本
       with:
         name: singbox-gui-windows
         path: singbox-gui.exe
+        retention-days: 30  # 保留工件30天
     
     - name: Create Release
       if: github.event_name == 'release'

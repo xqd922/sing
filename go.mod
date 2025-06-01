@@ -1,4 +1,4 @@
-module singbox-gui
+module sing
 
 go 1.20
 
